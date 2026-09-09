@@ -11,11 +11,4 @@
     <ProjectReference Include="..\CashOverflow.Domain\CashOverflow.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Identity\" />
-    <Folder Include="AiServices\" />
-    <Folder Include="Payments\" />
-    <Folder Include="Persistence\" />
-  </ItemGroup>
-
 </Project>
