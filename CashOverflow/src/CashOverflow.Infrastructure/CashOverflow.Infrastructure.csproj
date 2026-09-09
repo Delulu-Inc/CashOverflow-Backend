@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CashOverflow.Application\CashOverflow.Application.csproj" />
+    <ProjectReference Include="..\CashOverflow.Domain\CashOverflow.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Identity\" />
+    <Folder Include="AiServices\" />
+    <Folder Include="Payments\" />
+    <Folder Include="Persistence\" />
+  </ItemGroup>
+
+</Project>
