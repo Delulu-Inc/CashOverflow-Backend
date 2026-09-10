@@ -16,8 +16,12 @@ public class PaymentConfiguration
         builder.Property(x => x.Id)
             .ValueGeneratedNever();
 
-        builder.Property(x => x.SubscriptionId)
+        builder.Property(x => x.OrganizationId)
+            .HasColumnType("varchar(50)")
+            .HasMaxLength(50)
             .IsRequired();
+
+        builder.Property(x => x.SubscriptionId);
 
         builder.Property(x => x.Amount)
             .HasPrecision(18, 2)
@@ -46,10 +50,19 @@ public class PaymentConfiguration
 
         builder.Property(x => x.PaidAt);
 
+        // Organization 1 : M Payments
+        builder.HasOne(x => x.Organization)
+            .WithMany(x => x.Payments)
+            .HasForeignKey(x => x.OrganizationId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Subscription 1 : M Payments (optional from Payment side)
         builder.HasOne(x => x.Subscription)
             .WithMany(x => x.Payments)
             .HasForeignKey(x => x.SubscriptionId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasIndex(x => x.OrganizationId);
 
         builder.HasIndex(x => x.SubscriptionId);
 

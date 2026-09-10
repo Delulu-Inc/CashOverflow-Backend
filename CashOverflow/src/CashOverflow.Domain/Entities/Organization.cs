@@ -14,6 +14,8 @@ public class Organization
         = new List<Invitation>();
 
     public Subscription? Subscription { get; set; }
+    public List<Payment> Payments { get; set; }
+      = new List<Payment>();
 
     public Company? Company { get; set; }
 }
