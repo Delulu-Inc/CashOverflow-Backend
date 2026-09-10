@@ -7,7 +7,7 @@ public class Payment
     public Guid Id { get; set; }
 
     public Guid SubscriptionId { get; set; }
-
+    public string OrganizationId { get; set; } = null!;
     public decimal Amount { get; set; }
 
     public string Currency { get; set; } = null!;
@@ -24,4 +24,5 @@ public class Payment
 
     // Navigation Property
     public Subscription Subscription { get; set; } = null!;
+    public Organization Organization { get; set; } = null!;
 }

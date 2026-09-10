@@ -19,6 +19,5 @@ public class BankAccount
     // Navigation Properties
     public Company Company { get; set; } = null!;
 
-    public ICollection<BankTransaction> BankTransactions { get; set; }
-        = new List<BankTransaction>();
+    public List<BankTransaction> BankTransactions { get; set; } = new List<BankTransaction>();
 }

@@ -49,7 +49,7 @@ public class PaymentConfiguration
         builder.HasOne(x => x.Subscription)
             .WithMany(x => x.Payments)
             .HasForeignKey(x => x.SubscriptionId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasIndex(x => x.SubscriptionId);
 
