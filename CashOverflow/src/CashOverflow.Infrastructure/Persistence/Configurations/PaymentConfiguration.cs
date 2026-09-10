@@ -60,9 +60,13 @@ public class PaymentConfiguration
         builder.HasOne(x => x.Subscription)
             .WithMany(x => x.Payments)
             .HasForeignKey(x => x.SubscriptionId)
+<<<<<<< HEAD
             .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasIndex(x => x.OrganizationId);
+=======
+            .OnDelete(DeleteBehavior.Restrict);
+>>>>>>> 800e601362b76cd1a82c7f1502c229f9c012c179
 
         builder.HasIndex(x => x.SubscriptionId);
 

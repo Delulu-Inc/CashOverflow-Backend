@@ -69,7 +69,7 @@ public class InvoiceLineConfiguration
         builder.HasOne(x => x.Invoice)
             .WithMany(x => x.InvoiceLines)
             .HasForeignKey(x => x.InvoiceUuid)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasIndex(x => x.InvoiceUuid);
 

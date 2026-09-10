@@ -40,7 +40,7 @@ public class SubscriptionConfiguration
         builder.HasOne(x => x.Organization)
             .WithOne(x => x.Subscription)
             .HasForeignKey<Subscription>(x => x.OrganizationId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasIndex(x => x.OrganizationId)
             .IsUnique();

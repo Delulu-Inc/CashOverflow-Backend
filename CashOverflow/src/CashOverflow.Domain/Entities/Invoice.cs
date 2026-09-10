@@ -49,9 +49,7 @@ public class Invoice
 
     public CounterParty Counterparty { get; set; } = null!;
 
-    public ICollection<InvoiceLine> InvoiceLines { get; set; }
-        = new List<InvoiceLine>();
+    public List<InvoiceLine> InvoiceLines { get; set; } = new List<InvoiceLine>();
 
-    public ICollection<Settlement> Settlements { get; set; }
-        = new List<Settlement>();
+    public List<Settlement> Settlements { get; set; } = new List<Settlement>();
 }

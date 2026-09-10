@@ -64,7 +64,7 @@ public class CounterPartyConfiguration
         builder.HasOne(x => x.Company)
             .WithMany(x => x.Counterparties)
             .HasForeignKey(x => x.CompanyId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasIndex(x => x.CompanyId);
     }

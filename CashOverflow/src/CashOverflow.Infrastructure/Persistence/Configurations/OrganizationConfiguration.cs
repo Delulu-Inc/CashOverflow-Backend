@@ -26,21 +26,21 @@ public class OrganizationConfiguration
         builder.HasMany(x => x.Members)
             .WithOne(x => x.Organization)
             .HasForeignKey(x => x.OrganizationId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasMany(x => x.Invitations)
             .WithOne(x => x.Organization)
             .HasForeignKey(x => x.OrganizationId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(x => x.Subscription)
             .WithOne(x => x.Organization)
             .HasForeignKey<Subscription>(x => x.OrganizationId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(x => x.Company)
             .WithOne(x => x.Organization)
             .HasForeignKey<Company>(x => x.CompanyId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

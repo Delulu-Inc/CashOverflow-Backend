@@ -72,7 +72,7 @@ public class CompanyConfiguration
         builder.HasOne(x => x.Organization)
             .WithOne(x => x.Company)
             .HasForeignKey<Company>(x => x.CompanyId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasIndex(x => x.TaxId);
     }

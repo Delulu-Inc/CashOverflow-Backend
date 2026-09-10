@@ -33,6 +33,5 @@ public class BankTransaction
 
     public Company Company { get; set; } = null!;
 
-    public ICollection<Settlement> Settlements { get; set; }
-        = new List<Settlement>();
+    public List<Settlement> Settlements { get; set; }
 }

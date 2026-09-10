@@ -31,12 +31,12 @@ public class OrganizationMemberConfiguration
         builder.HasOne(x => x.ApplicationUser)
             .WithMany(x => x.OrganizationMembers)
             .HasForeignKey(x => x.ApplicationUserId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(x => x.Organization)
             .WithMany(x => x.Members)
             .HasForeignKey(x => x.OrganizationId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasIndex(x => new
         {

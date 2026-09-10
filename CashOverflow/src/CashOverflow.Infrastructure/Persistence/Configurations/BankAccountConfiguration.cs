@@ -47,7 +47,7 @@ public class BankAccountConfiguration
         builder.HasOne(x => x.Company)
             .WithMany(x => x.BankAccounts)
             .HasForeignKey(x => x.CompanyId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasIndex(x => x.CompanyId);
 
