@@ -73,6 +73,24 @@ builder.Services.AddAuthentication(
 
 var app = builder.Build();
 
+//DbInitializer
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        await DbInitializer.SeedAsync(context, userManager, roleManager);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("An error occurred during DB initialization: " + ex.Message);
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

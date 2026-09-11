@@ -26,6 +26,7 @@ public class OrganizationMemberConfiguration
             .IsRequired();
 
         builder.Property(x => x.ApplicationUserId)
+            .HasMaxLength(450)
             .IsRequired();
 
         builder.HasOne(x => x.ApplicationUser)
