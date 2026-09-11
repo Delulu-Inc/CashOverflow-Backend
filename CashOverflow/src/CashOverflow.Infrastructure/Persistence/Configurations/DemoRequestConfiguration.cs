@@ -47,5 +47,12 @@ public class DemoRequestConfiguration
         builder.HasIndex(x => x.CompanyEmail);
 
         builder.HasIndex(x => x.SubmittedAt);
+        builder.Property(x => x.CompanySize)
+      .HasMaxLength(50)
+      .IsRequired();
+
+        builder.Property(x => x.PhoneNumber)
+            .HasMaxLength(20)
+            .IsRequired();
     }
 }

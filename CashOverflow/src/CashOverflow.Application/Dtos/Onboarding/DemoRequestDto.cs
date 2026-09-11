@@ -1,8 +1,6 @@
-﻿using CashOverflow.Domain.Enums;
+﻿namespace CashOverflow.Application.Dtos.Onboarding;
 
-namespace CashOverflow.Domain.Entities;
-
-public class DemoRequest
+public class DemoRequestDto
 {
     public Guid Id { get; set; }
 
@@ -13,14 +11,14 @@ public class DemoRequest
     public string CompanyEmail { get; set; } = null!;
 
     public string CompanyName { get; set; } = null!;
-    public DemoRequestStatus Status { get; set; }
-    public string Message { get; set; } = null!;
-
-
-    public DateTimeOffset SubmittedAt { get; set; }
 
     public string CompanySize { get; set; } = null!;
 
     public string PhoneNumber { get; set; } = null!;
 
+    public string Message { get; set; } = null!;
+
+    public string Status { get; set; } = null!;
+
+    public DateTimeOffset SubmittedAt { get; set; }
 }
