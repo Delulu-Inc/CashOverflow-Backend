@@ -14,13 +14,13 @@ public class SettlementConfiguration
         builder.HasKey(x => x.SettlementId);
 
         builder.Property(x => x.SettlementId)
-            .HasColumnType("varchar(50)")
-            .HasMaxLength(50)
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.InvoiceUuid)
-            .HasColumnType("varchar(50)")
-            .HasMaxLength(50)
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.CompanyId)
@@ -52,8 +52,8 @@ public class SettlementConfiguration
             .IsRequired();
 
         builder.Property(x => x.BankTransactionId)
-            .HasColumnType("varchar(50)")
-            .HasMaxLength(50);
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100);
 
         builder.HasOne(x => x.Invoice)
             .WithMany(x => x.Settlements)

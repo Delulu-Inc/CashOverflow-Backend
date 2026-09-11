@@ -14,8 +14,8 @@ public class BankTransactionConfiguration
         builder.HasKey(x => x.TransactionId);
 
         builder.Property(x => x.TransactionId)
-            .HasColumnType("varchar(50)")
-            .HasMaxLength(50)
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.AccountId)
