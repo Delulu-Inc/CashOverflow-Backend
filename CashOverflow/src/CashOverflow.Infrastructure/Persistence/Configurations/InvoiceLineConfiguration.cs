@@ -19,8 +19,8 @@ public class InvoiceLineConfiguration
             .IsRequired();
 
         builder.Property(x => x.InvoiceUuid)
-            .HasColumnType("varchar(50)")
-            .HasMaxLength(50)
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.LineNumber)

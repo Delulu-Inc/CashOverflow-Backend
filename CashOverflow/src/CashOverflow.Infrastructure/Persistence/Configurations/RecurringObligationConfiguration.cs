@@ -11,7 +11,8 @@ namespace CashOverflow.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<RecurringObligation> builder)
         {
-          
+            builder.ToTable("RecurringObligations");
+
             builder.HasKey(r => r.ObligationId);
             builder.Property(r => r.ObligationId)
                 .HasMaxLength(64)

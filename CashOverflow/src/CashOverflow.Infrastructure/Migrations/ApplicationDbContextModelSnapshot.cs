@@ -176,8 +176,8 @@ namespace CashOverflow.Infrastructure.Migrations
             modelBuilder.Entity("CashOverflow.Domain.Entities.BankTransaction", b =>
                 {
                     b.Property<string>("TransactionId")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("transaction_id");
 
                     b.Property<string>("AccountId")
@@ -561,8 +561,8 @@ namespace CashOverflow.Infrastructure.Migrations
             modelBuilder.Entity("CashOverflow.Domain.Entities.Invoice", b =>
                 {
                     b.Property<string>("Uuid")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("uuid");
 
                     b.Property<string>("CompanyId")
@@ -633,8 +633,8 @@ namespace CashOverflow.Infrastructure.Migrations
                         .HasColumnName("payment_terms_days");
 
                     b.Property<string>("ReferenceUuid")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("reference_uuid");
 
                     b.Property<decimal>("RetentionAmount")
@@ -701,8 +701,8 @@ namespace CashOverflow.Infrastructure.Migrations
 
                     b.Property<string>("InvoiceUuid")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("invoice_uuid");
 
                     b.Property<string>("ItemCode")
@@ -956,19 +956,19 @@ namespace CashOverflow.Infrastructure.Migrations
                     b.HasIndex("CompanyId")
                         .HasDatabaseName("ix_recurring_obligations_company_id");
 
-                    b.ToTable("recurring_obligations", (string)null);
+                    b.ToTable("RecurringObligations", (string)null);
                 });
 
             modelBuilder.Entity("CashOverflow.Domain.Entities.Settlement", b =>
                 {
                     b.Property<string>("SettlementId")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("settlement_id");
 
                     b.Property<string>("BankTransactionId")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("bank_transaction_id");
 
                     b.Property<string>("CompanyId")
@@ -985,8 +985,8 @@ namespace CashOverflow.Infrastructure.Migrations
 
                     b.Property<string>("InvoiceUuid")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
                         .HasColumnName("invoice_uuid");
 
                     b.Property<bool>("IsFinal")
