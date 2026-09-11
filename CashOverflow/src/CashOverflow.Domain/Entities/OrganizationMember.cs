@@ -6,7 +6,7 @@ public class OrganizationMember
 
     public string Name { get; set; } = null!;
 
-    public Guid ApplicationUserId { get; set; }
+    public string ApplicationUserId { get; set; }
 
     public string OrganizationId { get; set; } = null!;
 
