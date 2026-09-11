@@ -1,13 +1,14 @@
 using CashOverflow.Application.Common.Interfaces;
 using CashOverflow.Domain.Entities;
+using CashOverflow.Infrastructure.Email;
 using CashOverflow.Infrastructure.Identity;
+using CashOverflow.Infrastructure.Onboarding;
 using CashOverflow.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,6 +72,14 @@ builder.Services.AddAuthentication(
      }
 
     );
+
+    builder.Services.Configure<EmailSettings>(
+    builder.Configuration.GetSection("EmailSettings")
+       );
+
+   builder.Services.AddScoped<IEmailService, EmailService>(); 
+   builder.Services.AddScoped<IOnboardingService, OnboardingService>();
+
 
 var app = builder.Build();
 
