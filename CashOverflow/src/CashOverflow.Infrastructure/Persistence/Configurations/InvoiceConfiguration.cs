@@ -14,8 +14,8 @@ public class InvoiceConfiguration
         builder.HasKey(x => x.Uuid);
 
         builder.Property(x => x.Uuid)
-            .HasColumnType("varchar(50)")
-            .HasMaxLength(50)
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(x => x.InternalId)
@@ -91,8 +91,8 @@ public class InvoiceConfiguration
             .IsRequired();
 
         builder.Property(x => x.ReferenceUuid)
-            .HasColumnType("varchar(50)")
-            .HasMaxLength(50);
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100);
 
         builder.Property(x => x.CreatedAt)
             .IsRequired();

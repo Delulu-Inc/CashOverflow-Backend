@@ -356,7 +356,7 @@ namespace CashOverflow.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "recurring_obligations",
+                name: "RecurringObligations",
                 columns: table => new
                 {
                     obligation_id = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
@@ -419,7 +419,7 @@ namespace CashOverflow.Infrastructure.Migrations
                 name: "BankTransactions",
                 columns: table => new
                 {
-                    transaction_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    transaction_id = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     account_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     company_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     booking_date = table.Column<DateOnly>(type: "date", nullable: false),
@@ -452,7 +452,7 @@ namespace CashOverflow.Infrastructure.Migrations
                 name: "Invoices",
                 columns: table => new
                 {
-                    uuid = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    uuid = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     internal_id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     company_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     counterparty_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
@@ -470,7 +470,7 @@ namespace CashOverflow.Infrastructure.Migrations
                     total_amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     retention_pct = table.Column<decimal>(type: "decimal(9,4)", precision: 9, scale: 4, nullable: false),
                     retention_amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    reference_uuid = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
+                    reference_uuid = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
                     created_at = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
                 constraints: table =>
@@ -493,7 +493,7 @@ namespace CashOverflow.Infrastructure.Migrations
                 columns: table => new
                 {
                     line_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
-                    invoice_uuid = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    invoice_uuid = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     line_number = table.Column<int>(type: "int", nullable: false),
                     description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     item_code = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -521,8 +521,8 @@ namespace CashOverflow.Infrastructure.Migrations
                 name: "Settlements",
                 columns: table => new
                 {
-                    settlement_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
-                    invoice_uuid = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    settlement_id = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    invoice_uuid = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     company_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     paid_date = table.Column<DateOnly>(type: "date", nullable: false),
                     paid_amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
@@ -530,7 +530,7 @@ namespace CashOverflow.Infrastructure.Migrations
                     method = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     sequence_no = table.Column<int>(type: "int", nullable: false),
                     is_final = table.Column<bool>(type: "bit", nullable: false),
-                    bank_transaction_id = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+                    bank_transaction_id = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -701,7 +701,7 @@ namespace CashOverflow.Infrastructure.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "ix_recurring_obligations_company_id",
-                table: "recurring_obligations",
+                table: "RecurringObligations",
                 column: "company_id");
 
             migrationBuilder.CreateIndex(
@@ -763,7 +763,7 @@ namespace CashOverflow.Infrastructure.Migrations
                 name: "Payments");
 
             migrationBuilder.DropTable(
-                name: "recurring_obligations");
+                name: "RecurringObligations");
 
             migrationBuilder.DropTable(
                 name: "Settlements");

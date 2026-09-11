@@ -1,7 +1,4 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path=".gitignore" />
-  </Folder>
   <Folder Name="/src/">
     <Project Path="src/CashOverflow.Api/CashOverflow.Api.csproj" Id="06a88d07-1ae7-44c5-aa31-988bcb3e8c5a" />
     <Project Path="src/CashOverflow.Application/CashOverflow.Application.csproj" Id="cf22a6fd-6a20-49c3-a03b-ce8312506775" />
