@@ -38,7 +38,7 @@ public class OnboardingController : ControllerBase
         );
     }
     //  [Authorize(Roles = "Admin,Owner")]
-    [Authorize]
+    //[Authorize]
     [HttpGet("demo-requests")]
     public async Task<IActionResult> GetPendingDemoRequests(
     CancellationToken cancellationToken)
@@ -47,5 +47,72 @@ public class OnboardingController : ControllerBase
             .GetPendingDemoRequestsAsync(cancellationToken);
 
         return Ok(requests);
+    }
+
+  //  [Authorize]
+    [HttpPost("approve/{id:guid}")]
+    public async Task<IActionResult> ApproveDemoRequest(
+    Guid id,
+    CancellationToken cancellationToken)
+    {
+        try
+        {
+            await _onboardingService.ApproveDemoRequestAsync(
+                id,
+                cancellationToken);
+
+            return Ok(new
+            {
+                message = "Demo request approved and invitation sent successfully."
+            });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new
+            {
+                message = ex.Message
+            });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return Conflict(new
+            {
+                message = ex.Message
+            });
+        }
+    }
+
+
+    [AllowAnonymous]
+    [HttpPost("accept-invite")]
+    public async Task<IActionResult> AcceptInvite(
+    [FromBody] AcceptInviteDto request,
+    CancellationToken cancellationToken)
+    {
+        try
+        {
+            await _onboardingService.AcceptInviteAsync(
+                request,
+                cancellationToken);
+
+            return Ok(new
+            {
+                message = "Invitation accepted successfully."
+            });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new
+            {
+                message = ex.Message
+            });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(new
+            {
+                message = ex.Message
+            });
+        }
     }
 }
